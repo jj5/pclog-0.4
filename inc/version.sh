@@ -5,13 +5,13 @@
 export PCLOG_NAME='pclog-0.4';
 export PCLOG_CODE='pclog';
 
-export PCLOG_VERSION='0.4.3';
+export PCLOG_VERSION='0.4.5';
 export PCLOG_VERSION_MAJOR='0';
 export PCLOG_VERSION_MINOR='4';
-export PCLOG_VERSION_PATCH='3';
+export PCLOG_VERSION_PATCH='5';
 
-export PCLOG_SVN_DATE='Date: 2026-10-21 21:52:45 +0000 (Wed, 21 Oct 2026)';
-export PCLOG_SVN_REVISION='Revision: 41816127';
+export PCLOG_SVN_DATE='Date: 2026-10-21 21:53:17 +0000 (Wed, 21 Oct 2026)';
+export PCLOG_SVN_REVISION='Revision: 79866638';
 export PCLOG_SVN_AUTHOR='Author: jj5';
 
-export PCLOG_GIT_DATE='2026-10-21 21:52:45 +0000 (Wed, 21 Oct 2026)';
+export PCLOG_GIT_DATE='2026-10-21 21:53:17 +0000 (Wed, 21 Oct 2026)';
