@@ -1,0 +1,52 @@
+
+dt { font-weight: bold; }
+dd { margin-top: 6px; margin-bottom: 6px; }
+thead, tfoot { cursor: pointer; }
+tfoot th { text-align: right; }
+
+p, dl { max-width: 600px; }
+
+dl { border: 1px solid black; padding: 5px; }
+
+td.id, td.count { text-align: right; }
+
+a.help:link, a.help:visited, a.help:hover, a.help:active {
+  color: blue;
+  text-decoration: none;
+}
+
+.footer { font-size: smaller; text-align: center; margin: 50px 0px; }
+
+
+/* 2016-12-04 jj5 - the pretty HTML <table> stolen from:
+   http://cssmenumaker.com/blog/stylish-css-tables-tutorial */
+table {
+  color: #333;
+  border-collapse:collapse;
+  border-spacing: 0;
+  cursor: default;
+  margin-bottom: 6px;
+}
+td, th {
+  border: 1px solid black;
+  transition: all 0.1s;  /* simple transition for hover effect */
+  padding: 4px;
+}
+th {
+  background: #D4D4D4;
+  font-weight: bold;
+}
+tbody th {
+  text-align: right;
+}
+td {
+  background: #FAFAFA;
+  vertical-align: top;
+}
+/* Cells in even rows (2,4,6...) are one color */
+tr:nth-child(even) td { background: #e4e4e4; }
+/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */
+tr:nth-child(odd) td { background: #FEFEFE; }
+tr:hover td { background-color: transparent; }
+tr:hover { background-color: #ffff99; }
+

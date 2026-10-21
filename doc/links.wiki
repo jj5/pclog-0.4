@@ -1,0 +1,17 @@
+<!-- 2023-12-30 jj5 - just testing... -->
+== Links ==
+
+Links are generated with [https://www.jj5.net/sixsigma/Bugslist.php bugslist.php]:
+
+ $ bugslist --all -a= -c=s -o=sk -t=s > doc/links.wiki
+
+* [http://php.net/manual/en/errorfunc.constants.php PHP error constants]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/module/63-error-handler.php?pathrev=3309#l65 63-error-handler.php]
+* [http://stackoverflow.com/a/21963136/868138 fast JavaScript hashing]: [https://www.progclub.org/pcrepo/pclog/branches/0.1/src/logic/client/browser.js?pathrev=3309#l415 browser.js]
+* [http://stackoverflow.com/questions/10113562/pdo-mysql-use-pdoattr-emulate-prepares-or-not#10455228 ATTR_EMULATE_PREPARES recommendation]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/class/pdo/PdoMySql.php?pathrev=3309#l88 PdoMySql.php]
+* [http://stackoverflow.com/questions/18277233/pdo-closing-connection#18277327 article about closing PDO]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/class/pdo/PdoMySql.php?pathrev=3309#l521 PdoMySql.php]
+* [http://stackoverflow.com/questions/2040240/php-function-to-generate-v4-uuid From StackOverflow]: [https://www.progclub.org/pcrepo/pclog/branches/0.1/src/logic/client/pclog.php?pathrev=3309#l452 pclog.php]
+* [http://stackoverflow.com/questions/24560881/changing-time-zone-after-connecting-to-database-using-set-time-zone MYSQL_ATTR_INIT_COMMAND]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/class/pdo/PdoMySql.php?pathrev=3309#l141 PdoMySql.php]
+* [http://stackoverflow.com/questions/2510434/format-bytes-to-kilobytes-megabytes-gigabytes#2510459 formatBytes from StackOverflow]: [https://www.progclub.org/pcrepo/pclog/branches/0.1/src/module/40-format.php?pathrev=3309#l13 40-format.php]
+* [http://stackoverflow.com/questions/6346674/pdo-support-for-multiple-queries-pdo-mysql-pdo-mysqlnd#6461110 PDO support for multiple queries]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/class/pdo/PdoMySql.php?pathrev=3309#l399 PdoMySql.php]
+* [http://www.binarytides.com/php-check-running-cli/ CLI detection]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/module/07-defaults.php?pathrev=3309#l11 07-defaults.php]
+* [https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection HTTP Redirection Status Codes]: [https://www.progclub.org/pcrepo/phpbom/branches/0.1/src/module/92-http.php?pathrev=3309#l428 92-http.php]
