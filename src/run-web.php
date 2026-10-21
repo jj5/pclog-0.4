@@ -1,3 +1,4 @@
 <?php
 
-require_once __DIR__ . '/../lib/phpbom/src/include/host/web.php';
+require_once __DIR__ . '/../lib/mudball-0.6/inc/framework/web.php';
+
