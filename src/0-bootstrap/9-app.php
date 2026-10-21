@@ -2,4 +2,4 @@
 
 require_once __DIR__ . '/8-module.php';
 
-define_app( 'PCLOG' );
+mud_define_app( 'PCLOG' );
