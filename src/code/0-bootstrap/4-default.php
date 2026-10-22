@@ -2,8 +2,6 @@
 
 require_once __DIR__ . '/3-library.php';
 
-// 2017-02-19 jj5 - DONE: configure $config defaults
-
 if ( ! mud_is_test() ) {
 
   // 2026-10-23 jj5 - we don't apply the default config when running tests so that we can test different configurations

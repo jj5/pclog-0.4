@@ -8,11 +8,6 @@ mud_define_error( 'APP_ERR_MISSING_PCLOG_RESOURCE_URL_PATH', 'setting pclog.reso
 mud_define_error( 'APP_ERR_MISSING_PCLOG_RESOURCE_DIR_PATH', 'setting pclog.resource.dir-path must be specified.' );
 mud_define_error( 'APP_ERR_INVALID_PCLOG_RESOURCE_DIR_PATH', 'invalid resource directory path.' );
 
-
-// 2017-02-21 jj5 - DONE: some phpbom compatibility stuff
-define( 'RES_DIR', mud_get_config( [ 'pclog', 'resource', 'dir-path' ] ) );
-define( 'URL_BASE', mud_get_config( [ 'pclog', 'url', 'base' ] ) );
-
 (function(){
 
   $url_path = mud_get_config( [ 'pclog', 'resource', 'url-path' ] );
@@ -39,5 +34,10 @@ define( 'URL_BASE', mud_get_config( [ 'pclog', 'url', 'base' ] ) );
     );
 
   }
+
+  // 2026-10-23 jj5 - THINK: do we still need this? it should probably have APP_ prefix if we do.
+  // 2017-02-21 jj5 - DONE: some phpbom compatibility stuff
+  define( 'RES_DIR', mud_get_config( [ 'pclog', 'resource', 'dir-path' ] ) );
+  define( 'URL_BASE', mud_get_config( [ 'pclog', 'url', 'base' ] ) );
 
 })();
