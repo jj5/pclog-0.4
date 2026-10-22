@@ -15,11 +15,13 @@ mud_declare_tests([
 
   'test-1' => function () {
 
-    //throw new RuntimeException( 'Test exception' );
+    global $config;
 
-    //assert( false );
+    var_dump( $config ); exit;
 
-    //return 0;
+    require_once __DIR__ . '/../../../src/code/0-bootstrap/6-global.php';
+
+    return 0;
 
   },
 
