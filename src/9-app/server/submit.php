@@ -69,7 +69,7 @@ function process_request( &$msts ) {
     error_reporting( $error_reporting );
 
   }
-  catch ( Exception $ex ) {
+  catch ( Throwable $ex ) {
 
     // we tried
 
@@ -80,7 +80,7 @@ function process_request( &$msts ) {
       error_log( $ex->getMessage() );
 
     }
-    catch ( Exception $ignore ) { ; }
+    catch ( Throwable $ignore ) { ; }
 
     error_reporting( $error_reporting );
 
@@ -91,7 +91,7 @@ function process_request( &$msts ) {
 
 function try_process_request( &$msts ) {
 
-  if ( ! is_post() ) { fail( "Only HTTP POST supported." ); }
+  if ( ! mud_is_post() ) { fail( "Only HTTP POST supported." ); }
 
   $now = pclog_date();
   $utc = pclog_date_utc();
