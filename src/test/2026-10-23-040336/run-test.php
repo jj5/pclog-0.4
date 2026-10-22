@@ -19,7 +19,7 @@ mud_declare_tests([
 
     //assert( false );
 
-    return 0;
+    //return 0;
 
   },
 
