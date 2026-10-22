@@ -15,13 +15,22 @@ mud_declare_tests([
 
   'test-1' => function () {
 
-    global $config;
+    try {
 
-    var_dump( $config ); exit;
+      require_once __DIR__ . '/../../../src/code/0-bootstrap/6-global.php';
 
-    require_once __DIR__ . '/../../../src/code/0-bootstrap/6-global.php';
+      return 1;
 
-    return 0;
+    }
+    catch ( Throwable $ex ) {
+
+      var_dump( $ex->getMessage() );
+
+      return 0;
+
+    }
+
+    return 1;
 
   },
 
