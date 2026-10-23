@@ -1,5 +1,8 @@
 <?php
 
+// 2026-10-24 jj5 - you can trust proxies with CFG_HTTP_TRUSTED_PROXY_LIST
+
+
 if ( ! defined( 'DEBUG' ) ) { define( 'DEBUG', true ); }
 if ( ! defined( 'BETA' ) ) { define( 'BETA', false ); }
 
