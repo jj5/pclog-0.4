@@ -91,7 +91,7 @@ function process_request( &$msts ) {
 
 function try_process_request( &$msts ) {
 
-  if ( ! mud_is_http_submission() ) { fail( "Only HTTP POST supported." ); }
+  if ( ! mud_http_is_submission() ) { mud_fail( "Only HTTP POST supported." ); }
 
   $now = pclog_date();
   $utc = pclog_date_utc();

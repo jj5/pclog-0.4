@@ -79,11 +79,11 @@ function main() {
 
   if ( count( $meta_files[ $sel_date ] ) === 0 ) {
 
-    unset_redirect( 'date', 'file', 'issue' );
+    mud_http_unset_redirect( 'date', 'file', 'issue' );
 
   }
 
-  $issue = read_gd( 'issue' );
+  $issue = mud_http_get_query( 'issue' );
   $sel_file = null;
 
   if ( $issue ) {
@@ -98,7 +98,7 @@ function main() {
   }
   else {
 
-    $sel_file = http_get_safe(
+    $sel_file = mud_http_get_query_safe(
       'file',
       SAFE_LOG_FILE,
       end( $meta_files[ $sel_date ] )
@@ -108,15 +108,19 @@ function main() {
 
   if ( ! $sel_file ) {
 
-    unset_redirect( 'date', 'file', 'issue' );
+    mud_http_unset_redirect( 'date', 'file', 'issue' );
 
+  }
+
+  function format_xx( $part ) {
+    return str_pad( $part, 2, '0', STR_PAD_LEFT );
   }
 
   $date_parts = array_map( 'format_xx', explode( '-', $sel_date ) );
 
   if ( count( $date_parts ) !== 3 ) {
 
-    unset_redirect( 'date', 'file' );
+    mud_http_unset_redirect( 'date', 'file' );
 
   }
 
@@ -125,7 +129,7 @@ function main() {
 
   if ( ! file_exists( $file_path ) || is_dir( $file_path ) ) {
 
-    unset_redirect( 'file' );
+    mud_http_unset_redirect( 'file' );
 
   }
 
@@ -201,7 +205,7 @@ function render_fail( &$file_info, $sel_date, $prev_file, $next_file ) {
     $offset < 0
   ) {
 
-    unset_redirect( 'offset' );
+    mud_http_unset_redirect( 'offset' );
 
   }
 
@@ -210,7 +214,7 @@ function render_fail( &$file_info, $sel_date, $prev_file, $next_file ) {
 
   if ( $limit <= 0 ) {
 
-    unset_redirect( 'limit' );
+    mud_http_unset_redirect( 'limit' );
 
   }
 
