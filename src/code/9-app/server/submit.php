@@ -91,7 +91,7 @@ function process_request( &$msts ) {
 
 function try_process_request( &$msts ) {
 
-  if ( ! mud_is_post() ) { fail( "Only HTTP POST supported." ); }
+  if ( ! mud_is_http_submission() ) { fail( "Only HTTP POST supported." ); }
 
   $now = pclog_date();
   $utc = pclog_date_utc();
@@ -121,13 +121,13 @@ function try_process_request( &$msts ) {
   ];
   */
 
-  $action_spec = get_path_info();
+  $action_spec = $_SERVER[ 'PATH_INFO' ] ?? '';
 
   $action = explode( '/', $action_spec );
 
   if ( count( $action ) !== 7 ) {
 
-    fail( "Invalid action '$action_spec'." );
+    mud_fail( "Invalid action '$action_spec'." );
 
   }
 
@@ -149,20 +149,20 @@ function try_process_request( &$msts ) {
 
   if ( $command !== 'submit' ) {
 
-    fail( "Invalid command '$command'." );
+    mud_fail( "Invalid command '$command'." );
 
   }
 
   if ( ! array_key_exists( $type, $types ) ) {
 
-    fail( "Invalid type '$type'." );
+    mud_fail( "Invalid type '$type'." );
 
   }
 
   /*
   if ( ! array_key_exists( $form, $forms ) ) {
 
-    fail( "Invalid form '$form'." );
+    mud_fail( "Invalid form '$form'." );
 
   }
   */
@@ -170,13 +170,13 @@ function try_process_request( &$msts ) {
   // 2017-02-21 jj5 - TODO: validate UUID
   if ( ! preg_match( '/^[0-9a-f-]{36}$/', $uuid ) ) {
 
-    fail( "Invalid UUID '$uuid'." );
+    mud_fail( "Invalid UUID '$uuid'." );
 
   }
 
   if ( ! preg_match( '/^\d{13}$/', $msts ) ) {
 
-    fail( "Invalid msts '$msts'." );
+    mud_fail( "Invalid msts '$msts'." );
 
   }
 
@@ -249,7 +249,7 @@ function try_process_request( &$msts ) {
 
     default :
 
-      fail( "Unsupported type '$type'." );
+      mud_fail( "Unsupported type '$type'." );
 
   }
 }
@@ -388,7 +388,7 @@ function get_file_path(
 
   if ( ! is_dir( $dir ) ) {
 
-    fail( "Invalid directory '$dir'." );
+    mud_fail( "Invalid directory '$dir'." );
 
   }
 

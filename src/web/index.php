@@ -3,7 +3,7 @@
 // 2017-02-21 jj5 - TODO: log how long data upload takes
 // 2017-02-21 jj5 - TODO: exception dash-board.
 
-require_once __DIR__ . '/../include/application.php';
+require_once __DIR__ . '/../../inc/run-web.php';
 
 define(
   'SAFE_LOG_FILE',

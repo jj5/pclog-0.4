@@ -1,8 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../include/library.php';
+require_once __DIR__ . '/../../inc/run-web.php';
 
-//file_put_contents( '/tmp/post.txt', file_get_contents( 'php://input' ) );
+if ( DEBUG ) {
+
+  file_put_contents( '/var/state/pclog/post.json', file_get_contents( 'php://input' ) );
+
+}
 
 // 2017-02-21 jj5 - TODO[H]: consolidate script/api under /api
 
@@ -19,13 +23,13 @@ switch ( $path_list[ 1 ] ) {
 
   case 'script' :
 
-    require_once __DIR__ . '/../9-app/server/script.php';
+    require_once __DIR__ . '/../code/9-app/server/script.php';
 
     break;
 
   case 'submit' :
 
-    require_once __DIR__ . '/../9-app/server/submit.php';
+    require_once __DIR__ . '/../code/9-app/server/submit.php';
 
     break;
 
