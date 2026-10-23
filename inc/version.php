@@ -5,16 +5,16 @@
 define( 'PCLOG_NAME', 'pclog-0.4' );
 define( 'PCLOG_CODE', 'pclog' );
 
-//define( 'PCLOG_VERSION', '0.4.25' );
+//define( 'PCLOG_VERSION', '0.4.27' );
 define( 'PCLOG_VERSION_MAJOR', 0 );
 define( 'PCLOG_VERSION_MINOR', 4 );
-define( 'PCLOG_VERSION_PATCH', 25 );
+define( 'PCLOG_VERSION_PATCH', 27 );
 
 define(
   'PCLOG_SVN_DATE',
-  '$Date: 2026-10-23 17:31:20 +0000 (Fri, 23 Oct 2026) $'
+  '$Date: 2026-10-23 18:24:15 +0000 (Fri, 23 Oct 2026) $'
 );
-define( 'PCLOG_SVN_REVISION', '$Revision: 209683029 $' );
+define( 'PCLOG_SVN_REVISION', '$Revision: 172190670 $' );
 define( 'PCLOG_SVN_AUTHOR', '$Author: jj5 $' );
 
-define( 'PCLOG_GIT_DATE', '2026-10-23 17:31:20 +0000 (Fri, 23 Oct 2026)' );
+define( 'PCLOG_GIT_DATE', '2026-10-23 18:24:15 +0000 (Fri, 23 Oct 2026)' );
