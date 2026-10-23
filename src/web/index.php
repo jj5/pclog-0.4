@@ -75,7 +75,7 @@ function main() {
 
   if ( count( $dates ) === 0 ) { echo "No dates."; exit; }
 
-  $sel_date = http_get_safe( 'date', SAFE_DATE, end( $dates ) );
+  $sel_date = mud_http_get_query( 'date', end( $dates ) );
 
   if ( count( $meta_files[ $sel_date ] ) === 0 ) {
 
