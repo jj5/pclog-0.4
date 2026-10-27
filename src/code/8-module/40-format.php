@@ -34,7 +34,7 @@ function format_file( $file ) {
 
   $json = file_get_contents( $meta_path );
   $data = json_decode( $json, true );
-  $form = read_ad( 'form', $data, 'missing' );
+  $form = $data[ 'form' ] ?? 'missing';
 
   list( $time, $issue ) = explode( '-', $file );
 

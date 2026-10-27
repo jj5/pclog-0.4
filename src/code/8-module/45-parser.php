@@ -2,7 +2,7 @@
 
 function get_mesg( $data, &$form = null ) {
 
-  $form = read_ad( 'form', $data );
+  $form = $data[ 'form' ] ?? null;
 
   switch ( $form ) {
 
@@ -80,7 +80,7 @@ function read_log_file( $file ) {
   }
 
 
-  $msts = read_ad( 'msts', $json_data, 0 );
+  $msts = $json_data[ 'msts' ] ?? 0;
 
   $tsec = intval( round( $msts / 1000.0 ) );
 
@@ -103,12 +103,12 @@ function read_log_file( $file ) {
   if ( $bcap ) {
 
     $spec_data[ 'brow' ] = [
-      'browser' =>  read_ad( 'browser', $bcap ),
+      'browser' =>  $bcap[ 'browser' ] ?? null,
       //'version' =>  read_ad( 'comment', $bcap ),
-      'version' =>  read_ad( 'version', $bcap ),
-      'platform' => read_ad( 'platform', $bcap ),
-      'device' =>  read_ad( 'device_name', $bcap ),
-      'pointer' =>  read_ad( 'device_pointing_method', $bcap ),
+      'version' =>  $bcap[ 'version' ] ?? null,
+      'platform' => $bcap[ 'platform' ] ?? null,
+      'device' =>  $bcap[ 'device_name' ] ?? null,
+      'pointer' =>  $bcap[ 'device_pointing_method' ] ?? null,
     ];
 
   }

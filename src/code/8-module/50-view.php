@@ -2,7 +2,7 @@
 
 function render_head( $opt = [] ) {
   global $config;
-  $title_html = read_ad( 'title_html', $opt, 'Error Reporting' );
+  $title_html = $opt[ 'title_html' ] ?? 'Error Reporting';
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@ function render_head( $opt = [] ) {
 
   $stylesheet_links = array_merge(
     [ res( 'lib/jsonview/dist/jquery.jsonview.css' ) ],
-    read_ad( 'stylesheet_links', $opt, [] )
+    $opt[ 'stylesheet_links' ] ?? [],
   );
 
   foreach ( $stylesheet_links as $stylesheet_link ) :
@@ -23,7 +23,7 @@ function render_head( $opt = [] ) {
 <?php
   endforeach;
 
-  pclog_render_scripts();
+  mud_pclog_render_scripts();
 
   $script_links = array_merge(
 
@@ -47,7 +47,7 @@ function render_head( $opt = [] ) {
 
     ],
 
-    read_ad( 'script_links', $opt, [] )
+    $opt[ 'script_links' ] ?? []
 
   );
   foreach ( $script_links as $script_link ) :
@@ -66,17 +66,17 @@ function render_foot( $opt = [] ) {
   global $config;
 ?>
 <?php
-  $script_inline = read_ad( 'script_inline', $opt, [] );
+  $script_inline = $opt[ 'script_inline' ] ?? [];
   foreach ( $script_inline as $script_file ) :
 ?>
     <script><?php readfile( $script_file ) ?></script>
 <?php
   endforeach;
-  $json_data = read_ad( 'json_data', $opt, [] );
+  $json_data = $opt[ 'json_data' ] ?? [];
   foreach ( $json_data as $spec ) :
     // 2017-04-08 jj5 - HACK! We assume script elements are lower case with
     //  no spacing and with strings in double quotes.
-    $safe_json = str_replace_all(
+    $safe_json = mud_str_replace_all(
       '</script>',
       '</scr" + "ipt>',
       $spec[ 'json' ]
@@ -87,7 +87,7 @@ function render_foot( $opt = [] ) {
     </script>
 <?php
   endforeach;
-  $script_codes = read_ad( 'script_codes', $opt, [] );
+  $script_codes = $opt[ 'script_codes' ] ?? [];
   foreach ( $script_codes as $script_code ) :
 ?>
     <script>
@@ -363,7 +363,7 @@ function render_table(
 
     $column_name = $column_names[ $field ];
 
-    $heading = str_replace_all( ' ', '&nbsp', $column_name );
+    $heading = mud_str_replace_all( ' ', '&nbsp', $column_name );
     $help_link = "<a class='help' href='#field-$field' onclick='event.stopPropagation();'>(&#x2139;)</a>";
 
     echo "<th>{$heading}&nbsp;{$help_link}</th>";
@@ -534,7 +534,7 @@ if ( !function_exists( 'nbsp' ) ) {
 
   function nbsp( $html ) {
 
-    return str_replace_all( ' ', '&nbsp;', $html );
+    return mud_str_replace_all( ' ', '&nbsp;', $html );
 
   }
 }

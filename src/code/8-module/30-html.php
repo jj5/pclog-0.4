@@ -46,7 +46,6 @@ function render_select(
 
 }
 
-/*
 function render_option( $value, $label, $selected ) {
 
   $selected = $value === $selected ? ' selected' : '';
@@ -54,4 +53,3 @@ function render_option( $value, $label, $selected ) {
   echo "<option value='$value'$selected>$label</option>";
 
 }
-*/

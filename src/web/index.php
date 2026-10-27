@@ -71,6 +71,8 @@ EOF;
 
 function main() {
 
+  ob_start();
+
   read_pclog_data( $log_dir, $dates, $meta_files, $data_files );
 
   if ( count( $dates ) === 0 ) { echo "No dates."; exit; }
@@ -187,6 +189,40 @@ function main() {
   }
 
   render_foot( $opt );
+
+}
+
+function res( $path ) {
+
+  $url_path =
+    isset( $config[ APP_CODE ][ 'resource' ][ 'url-path' ] ) ?
+    $config[ APP_CODE ][ 'resource' ][ 'url-path' ] :
+    URL_BASE . '/res/';
+
+  $dir_path =
+    isset( $config[ APP_CODE ][ 'resource' ][ 'dir-path' ] ) ?
+    $config[ APP_CODE ][ 'resource' ][ 'dir-path' ] :
+    APP_PATH . '/src/web/res';
+
+  if ( ! $dir_path ) {
+
+    fail(
+      'Invalid resource dir-path.',
+      [ 'url_path' => $url_path, 'dir_path' => $dir_path ]
+    );
+
+  }
+
+  $url_path = rtrim( $url_path, '/' ) . '/' . $path;
+  $file_path = rtrim( $dir_path, '/' ) . '/' . $path;
+
+  $hash = md5_file( $file_path );
+
+  //$cache_buster = '?t=' . time();
+  $cache_buster = '?v=' . $hash;
+
+  // 2017-03-12 jj5 - TEMP: the cache buster should be removed for production
+  return "{$url_path}{$cache_buster}";
 
 }
 
@@ -313,7 +349,7 @@ function render_menu(
 }
 
 function render_user() {
-  $user = read_sd( 'PHP_AUTH_USER' );
+  $user = mud_http_get_server( 'PHP_AUTH_USER' );
   if ( ! $user ) { return; }
 ?>
 <span style="float:right;">Logged in as: <?= $user ?></span>
@@ -327,4 +363,35 @@ function render_form( $date, $file ) {
   <input type="hidden" name="file" value="<?= $file ?>">
 </form>
 <?php
+}
+
+function format_date( $date ) {
+
+  $date = date_create( $date );
+
+  return date_format( $date, 'D, j M Y' );
+
+}
+
+// 2017-06-03 jj5 - TODO: this is format_microtime() now... remove this.
+function php_tsec_format( $tsec, $format ) {
+
+  return date( $format, intval( round( $tsec ) ) );
+
+}
+
+function format_bytes( $bytes ) {
+
+  if ( $bytes < 1024 ) {
+    return "$bytes B";
+  }
+  else if ( $bytes < 1024 * 1024 ) {
+    return round( $bytes / 1024, 2 ) . " KB";
+  }
+  else if ( $bytes < 1024 * 1024 * 1024 ) {
+    return round( $bytes / ( 1024 * 1024 ), 2 ) . " MB";
+  }
+  else {
+    return round( $bytes / ( 1024 * 1024 * 1024 ), 2 ) . " GB";
+  }
 }
