@@ -8,7 +8,7 @@ main() {
 
   npm ci;
 
-  composer install;
+  #composer install;
 
 }
 
