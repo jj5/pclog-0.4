@@ -1,0 +1,29 @@
+{
+  "name": "pclog-0.4",
+  "version": "1.0.0",
+  "description": "Migrating pclog-0.3 to pclog-0.4 and from phpbom to mudball-0.6.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jj5/pclog-0.4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jj5/pclog-0.4/issues"
+  },
+  "homepage": "https://github.com/jj5/pclog-0.4#readme",
+  "dependencies": {
+    "jquery": "^4.0.0",
+    "jsonview": "^1.2.0",
+    "tablesort": "^5.7.1"
+  }
+}

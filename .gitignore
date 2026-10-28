@@ -1,5 +1,5 @@
-/lib
+/lib/
+/node_modules/
+/vendor/
 /config.php
 /debug.php
-/node_modules
-/vendor
