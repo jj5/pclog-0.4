@@ -8,7 +8,9 @@ main() {
 
   npm ci;
 
-  #composer install;
+  composer install;
+
+  vendor/bin/browscap-php browscap:update
 
 }
 
