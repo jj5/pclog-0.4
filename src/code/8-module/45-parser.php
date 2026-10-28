@@ -67,15 +67,15 @@ function read_log_file( $file ) {
   /*
   $bcap =
     isset( $json_data[ 'agnt' ] ) ?
-    get_browser( $json_data[ 'agnt' ], true ) :
+    getBrowser( $json_data[ 'agnt' ], true ) :
     null;
   */
 
   $bcap = null;
 
-  if ( isset( $json_data[ 'agnt' ] ) && function_exists ( 'get_browser' ) ) {
+  if ( isset( $json_data[ 'agnt' ] ) && function_exists ( 'getBrowser' ) ) {
 
-    $bcap = get_browser( $json_data[ 'agnt' ], true );
+    $bcap = getBrowser( $json_data[ 'agnt' ], true );
 
   }
 
